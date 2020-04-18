@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Find a Friend</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <!-- firebase script references -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <link rel="stylesheet" href="assets/Style/style.css">
+
+</head>
+
+<body>
+        <div class="content row">
+
+            <article class="surveyquestions col-lg-5 container">
+                <p class="pt-1" id="surveyHeader">Survey</p>
+                <form class="no-gutters mx-5">
+                  <form>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">What's you name?</label>
+                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-url-input" class="col-2 col-form-label">Link for photo</label>
+                        <div class="col-10">
+                          <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
+                        </div>
+                      </div>
+<p>1 is Strongly Disagree and 5 is Strongly Agree</p>
+                  <div class="form-group">
+                        <h6 class="question"> I eat healthy most of the time with lots of fruits and vegetables.</h6>
+                        <div class="row text-left">
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options1" id="fruit1"
+                                    value="options1">
+                                <label class="form-check-label" for="fruit1">1 (Strongly Disagree)</label>
+                            </div>
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options1" id="q1-relaxation"
+                                    value="options1">
+                                <label class="form-check-label" for="fruit2">2</label>
+                            </div>
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options1" id="fruit3"
+                                    value="options1">
+                                <label class="form-check-label" for="options1">3</label>
+                            </div>
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options1" id="fruit4"
+                                    value="options1">
+                                <label class="form-check-label" for="options1">4</label>
+                            </div>
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options1" id="fruit5"
+                                    value="options1">
+                                <label class="form-check-label" for="options1">5 (Strongly Agree)</label>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="form-group">
+                        <h6 class="question"> I'd like to go on a 3 week vacation to Hawaii.</h6>
+                        <div class="row text-left">
+
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options2" id="Hawaii1"
+                                    value="options2">
+                                <label class="form-check-label" for="options2">1 (Strongly Disagree)</label>
+                            </div>
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options2" id="Hawaii2"
+                                    value="options2">
+                                <label class="form-check-label" for="options2">2</label>
+                            </div>
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options2" id="Hawaii3"
+                                    value="options2">
+                                <label class="form-check-label" for="options2">3</label>
+                            </div>
+                            <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options2" id="Hawaii4"
+                                  value="options2">
+                              <label class="form-check-label" for="options2">4</label>
+                          </div>
+                          <div class="form-check col-md">
+                            <input class="form-check-input" type="radio" name="options2" id="Hawaii5"
+                                value="options2">
+                            <label class="form-check-label" for="options2">5 (Strongly Agree)</label>
+                        </div>
+                    </div>
+                  <div class="form-group">
+                        <h6 class="question"> I am energetic and outgoing, unafraid to speak my mind.</h6>
+                        <div class="row text-left">
+
+                          <div class="form-check col-md">
+                            <input class="form-check-input" type="radio" name="options3" id="Mind1"
+                                value="options3">
+                            <label class="form-check-label" for="options3">1 (Strongly Disagree)</label>
+                        </div>
+                        <div class="form-check col-md">
+                            <input class="form-check-input" type="radio" name="options3" id="Mind2"
+                                value="options3">
+                            <label class="form-check-label" for="options3">2</label>
+                        </div>
+                        <div class="form-check col-md">
+                            <input class="form-check-input" type="radio" name="options3" id="Mind3"
+                                value="options3">
+                            <label class="form-check-label" for="options3">3</label>
+                        </div>
+                        <div class="form-check col-md">
+                          <input class="form-check-input" type="radio" name="options3" id="Mind4"
+                              value="options3">
+                          <label class="form-check-label" for="options3">4</label>
+                      </div>
+                      <div class="form-check col-md">
+                        <input class="form-check-input" type="radio" name="options3" id="Mind5"
+                            value="options3">
+                        <label class="form-check-label" for="options3">5 (Strongly Agree)</label>
+                    </div>
+                    </div>
+                    </div>
+                  <div class="form-group">
+                        <h6 class="question"> I'm a pretty zen person, I go to yoga weekly.</h6>
+                        <div class="row text-left">
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options4" id="zen1"
+                                  value="options1">
+                              <label class="form-check-label" for="options4">1 (Strongly Disagree)</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options4" id="zen2"
+                                  value="options1">
+                              <label class="form-check-label" for="options4">2</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options4" id="zen3"
+                                  value="options1">
+                              <label class="form-check-label" for="options4">3</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options4" id="zen4"
+                                  value="options1">
+                              <label class="form-check-label" for="options4">4</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options4" id="zen5"
+                                  value="options1">
+                              <label class="form-check-label" for="options4">5 (Strongly Agree)</label>
+                          </div>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                        <h6 class="question">I enjoy going to see live music.</h6>
+                        <div class="row text-left">
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options5" id="music1"
+                                  value="options1">
+                              <label class="form-check-label" for="options5">1 (Strongly Disagree)</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options5" id="music2"
+                                  value="options1">
+                              <label class="form-check-label" for="options5">2</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options5" id="music3"
+                                  value="options1">
+                              <label class="form-check-label" for="options5">3</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options5" id="music4"
+                                  value="options1">
+                              <label class="form-check-label" for="options5">4</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options5" id="music5"
+                                  value="options1">
+                              <label class="form-check-label" for="options5">5 (Strongly Agree)</label>
+                          </div>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                      <h6 class="question">I'm close with my family</h6>
+                      <div class="row text-left">
+                        <div class="form-check col-md">
+                            <input class="form-check-input" type="radio" name="options6" id="family1"
+                                value="options1">
+                            <label class="form-check-label" for="options6">1 (Strongly Disagree)</label>
+                        </div>
+                        <div class="form-check col-md">
+                            <input class="form-check-input" type="radio" name="options6" id="family2"
+                                value="options1">
+                            <label class="form-check-label" for="options6">2</label>
+                        </div>
+                        <div class="form-check col-md">
+                            <input class="form-check-input" type="radio" name="options6" id="family3"
+                                value="options1">
+                            <label class="form-check-label" for="options6">3</label>
+                        </div>
+                        <div class="form-check col-md">
+                            <input class="form-check-input" type="radio" name="options6" id="family4"
+                                value="options1">
+                            <label class="form-check-label" for="options6">4</label>
+                        </div>
+                        <div class="form-check col-md">
+                            <input class="form-check-input" type="radio" name="options6" id="family5"
+                                value="options1">
+                            <label class="form-check-label" for="options6">5 (Strongly Agree)</label>
+                        </div>
+                    </div>
+                      </div>
+                  <div class="form-group">
+                        <h6 class="question">I'm not afraid to sing karaoke.</h6>
+                        <div class="row text-left">
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options7" id="sing1"
+                                  value="options1">
+                              <label class="form-check-label" for="options7">1 (Strongly Disagree)</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options7" id="sing2"
+                                  value="options1">
+                              <label class="form-check-label" for="options7">2</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options7" id="sing3"
+                                  value="options1">
+                              <label class="form-check-label" for="options7">3</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options7" id="sing4"
+                                  value="options1">
+                              <label class="form-check-label" for="options7">4</label>
+                          </div>
+                          <div class="form-check col-md">
+                              <input class="form-check-input" type="radio" name="options7" id="sing5"
+                                  value="options1">
+                              <label class="form-check-label" for="options7">5 (Strongly Agree)</label>
+                          </div>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                          <h6 class="question">I like to party.</h6>
+                          <div class="row text-left">
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options8" id="party1"
+                                    value="options8">
+                                <label class="form-check-label" for="options8">1 (Strongly Disagree)</label>
+                            </div>
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options8" id="party2"
+                                    value="options8">
+                                <label class="form-check-label" for="options8">2</label>
+                            </div>
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options8" id="party3"
+                                    value="options8">
+                                <label class="form-check-label" for="options8">3</label>
+                            </div>
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options8" id="party4"
+                                    value="options8">
+                                <label class="form-check-label" for="options8">4</label>
+                            </div>
+                            <div class="form-check col-md">
+                                <input class="form-check-input" type="radio" name="options8" id="party5"
+                                    value="options8">
+                                <label class="form-check-label" for="options8">5 (Strongly Agree)</label>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="form-group">
+                            <h6 class="question">I'm a dog person.</h6>
+                            <div class="row text-left">
+                              <div class="form-check col-md">
+                                  <input class="form-check-input" type="radio" name="options9" id="dog1"
+                                      value="options1">
+                                  <label class="form-check-label" for="options9">1 (Strongly Disagree)</label>
+                              </div>
+                              <div class="form-check col-md">
+                                  <input class="form-check-input" type="radio" name="options1" id="dog2"
+                                      value="options9">
+                                  <label class="form-check-label" for="options9">2</label>
+                              </div>
+                              <div class="form-check col-md">
+                                  <input class="form-check-input" type="radio" name="options9" id="q1-combo"
+                                      value="options9">
+                                  <label class="form-check-label" for="options9">3</label>
+                              </div>
+                              <div class="form-check col-md">
+                                  <input class="form-check-input" type="radio" name="options9" id="q1-combo"
+                                      value="options9">
+                                  <label class="form-check-label" for="options9">4</label>
+                              </div>
+                              <div class="form-check col-md">
+                                  <input class="form-check-input" type="radio" name="options9" id="q1-combo"
+                                      value="options9">
+                                  <label class="form-check-label" for="options9">5 (Strongly Agree)</label>
+                              </div>
+                          </div>
+                    </div>
+                  <div class="form-group">
+                              <h6 class="question">I workout daily.</h6>
+                              <div class="row text-left">
+                                <div class="form-check col-md">
+                                    <input class="form-check-input" type="radio" name="options10" id="q1-adventure"
+                                        value="options10">
+                                    <label class="form-check-label" for="options10">1 (Strongly Disagree)</label>
+                                </div>
+                                <div class="form-check col-md">
+                                    <input class="form-check-input" type="radio" name="options10" id="q1-relaxation"
+                                        value="options10">
+                                    <label class="form-check-label" for="options10">2</label>
+                                </div>
+                                <div class="form-check col-md">
+                                    <input class="form-check-input" type="radio" name="options10" id="q1-combo"
+                                        value="options10">
+                                    <label class="form-check-label" for="options10">3</label>
+                                </div>
+                                <div class="form-check col-md">
+                                    <input class="form-check-input" type="radio" name="options10" id="q1-combo"
+                                        value="options10">
+                                    <label class="form-check-label" for="options10">4</label>
+                                </div>
+                                <div class="form-check col-md">
+                                    <input class="form-check-input" type="radio" name="options10" id="q1-combo"
+                                        value="options10">
+                                    <label class="form-check-label" for="options10">5 (Strongly Agree)</label>
+                                </div>
+                            </div>
+                    </div>
+                  
+                    <br>
+                    <button id="submit" type="button" class="btn btn-light container" data-toggle="modal"
+                        data-target="#results">Submit</button>
+                </form>
+
+            </article>
+     <div  id="resultsModal" class="modal fade" role="dialog">
+         <div class="modal-dialog">
+             <div class ="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                     </button>
+                     <h2 class="modal-title"><stong>Best Friend</stong></h2>
+                 </div>
+                 <div class="modal-body">
+                     <h2 id="matchName"></h2>
+                     <img id="matchImg"
+                     src="https://via.placeholder.com/400x400"
+                     alt="Placeholder image"
+                     />
+                 </div>
+                 <div class="modal-footer">
+                     <button typer="button" class="btn btn-default" data-dismiss="modal">
+                         close
+                     </button>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+    <!-- script links -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+    <script type="text/javascript">
+    $("#submit").on("click", function () {
+        function validateForm() {
+            var isValid = true;
+            $(".form-control").each(function() {
+                if ($(this).val() === "") isValid = false;
+            });
+            $(".chosen-select").each(function(){
+                if ($(this).val() === "") isValid = false;
+            });
+            return isValid;
+        }
+        if (validateForm()=== true) {
+            var userData = {
+                name: $("#name").val(),
+                photo: $("#photo").val(),
+                scores: [
+                    $("q1").val(),
+                    $("q2").val(),
+                    $("q3").val(),
+                    $("q4").val(),
+                    $("q5").val(),
+                    $("q6").val(),
+                    $("q7").val(),
+                    $("q8").val(),
+                    $("q9").val(),
+                    $("q10").val(),
+                ]
+            };
+            var currentURL = window.location.origin;
+
+            $.post(currentURL + "/api/friends", userData, function(data) {
+                $("#matchName").text(data.name);
+                $("#matchImg").attr("src", data.photo);
+                $("#resultsModal").modal("toggle");
+            });
+        } else {
+            alert ("Complete the survey")
+        }
+        });
+
+        </script>
+   
+</body>
+
+</html>

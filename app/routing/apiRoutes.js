@@ -32,6 +32,7 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.post("/api/friends", function(req, res) {
+    console.log(req.body)
     var totalDifference = 0;
     var bestMatch = {
       name:"",
@@ -42,7 +43,7 @@ module.exports = function(app) {
     var userName = userData.name;
     var userScores = userData.scores;
 
-    var b = userScore.map(function(item) {
+    var b = userScores.map(function(item) {
       return parseInt(item,10);
     });
     userData = {

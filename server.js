@@ -4,7 +4,7 @@
 // ==============================================================================
 
 var express = require("express");
-var bodyParser = require("body-parser");
+var path = require('path');
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -19,9 +19,9 @@ var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.text());
 app.use(express.json());
-app.use(bodyParser.json({ type: "application/vnd.api+json"}));
+app.use(express.text());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ================================================================================
 // ROUTER
